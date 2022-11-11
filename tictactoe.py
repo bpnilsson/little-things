@@ -1,5 +1,8 @@
 #! /usr/bin/python
-import os;from sys import *;from fcntl import *;from termios import *
+import os;
+from sys import *;
+from fcntl import *;
+from termios import *
 R,C,s,u,b,r,c=(lambda x:2-x//3),(lambda x:x%3),' ',0,['x','o'],1,1
 def m():
  ot,nt=tcgetattr(stdin.fileno()),tcgetattr(stdin.fileno());nt[3]=nt[3] & ~ICANON & ~ECHO;tcsetattr(stdin.fileno(),TCSANOW,nt);of=fcntl(stdin.fileno(),F_GETFL);fcntl(stdin.fileno(),F_SETFL,of|os.O_NONBLOCK)
@@ -11,7 +14,7 @@ def m():
 def pp(t):print "\n\n"+"\n".join([(" ".join([t[w][l] for l in range(3)])) for w in range(3)]),
 t=[[s]*3,[s]*3,[s]*3];pp(t)
 while 1:
- if sum(["".join(["".join(w) for w in t]).count(p) for p in b])==9: print "Tie!";break
+ if sum(["".join(["".join(w) for w in t]).count(p) for p in b])==9: print ("Tie!");break
  i=m()
  if not i.isdigit(): continue
  if i=='0':
@@ -26,5 +29,5 @@ while 1:
  elif ((t[0][0]==t[1][0]and t[0][0]==t[2][0])or(t[0][0]==t[0][1]and t[0][0]==t[0][2]))and(t[0][0]) in b: w=t[0][0]
  elif ((t[0][2]==t[1][2]and t[0][2]==t[2][2])or(t[2][0]==t[2][1]and t[2][0]==t[2][2]))and(t[2][2]) in b: w=t[2][2]
  else: continue
- print w.upper()+" Won!";break
+ print (w.upper()+" Won!");break
 while 1:pass

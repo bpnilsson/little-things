@@ -16,9 +16,9 @@ def int2roman( num ):
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         for i in range(1, 101):
-            print "%d: %s" % (i, int2roman(i))
+            print ("%d: %s" % (i, int2roman(i)))
     else:
         if sys.argv[1] > 8999:
-            print "Numbers greater than 8999 is not defined in roman numerals."
-        print int2roman(sys.argv[1])
+            print ("Numbers greater than 8999 is not defined in roman numerals.")
+        print (int2roman(sys.argv[1]))
 
